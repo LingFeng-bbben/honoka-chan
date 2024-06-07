@@ -124,18 +124,25 @@ func DownloadUpdate(ctx *gin.Context) {
 			})
 		}
 
-		patchFileUrl := fmt.Sprintf("%s/%s/archives/99_0_115.zip", SifCdnServer, downloadReq.TargetOs)
+		patchFileUrl := fmt.Sprintf("%s/%s/archives/99_0_115.zip", "http://127.0.0.1:8080/static", downloadReq.TargetOs)
+		getFileUrl := fmt.Sprintf("%s/%s/archives/99_0_115.zip", SifCdnServer, downloadReq.TargetOs)
 		resp, err := http.Get(patchFileUrl)
 		if err == nil {
 			res, err := io.ReadAll(resp.Body)
 			if err == nil {
 				pkgList = append(pkgList, model.UpdateRes{
 					Size:    len(res),
-					URL:     patchFileUrl,
+					URL:     getFileUrl,
 					Version: config.PackageVersion,
 				})
+			} else {
+				fmt.Print("Err1 read 99_0_115.zip\n")
+				fmt.Print(err)
 			}
 			defer resp.Body.Close()
+		} else {
+			fmt.Print("Err2 read 99_0_115.zip\n")
+			fmt.Print(err)
 		}
 	}
 

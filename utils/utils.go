@@ -5,6 +5,7 @@ package utils
 
 import (
 	"encoding/hex"
+	"fmt"
 	"math/rand"
 	"os"
 	"sync"
@@ -21,6 +22,7 @@ func PathExists(path string) bool {
 }
 
 func ReadAllText(path string) string {
+	fmt.Print("Read " + path + "\n")
 	rwMutex.RLock()
 	defer rwMutex.RUnlock()
 
