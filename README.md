@@ -18,7 +18,7 @@ LoveLive! 学园偶像祭、学园偶像季: 群星闪耀 自用私服。
 
 ### 下载数据包（仅有安卓）
 
-解压android.zip到static文件夹。解压后确保文件结构是像static/Android/archives/9243个数据包这样
+解压[android.zip](https://pixeldrain.com/u/z7YxHDEf)到static文件夹。解压后确保文件结构是像static/Android/archives/9243个数据包这样
 
 ### 启动hosts
 
